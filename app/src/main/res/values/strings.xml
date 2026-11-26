@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">电视直播</string>
+
+    <string name="hint_bar">OK 选台 · 长按OK 频道菜单 · 菜单 设置</string>
+    <string name="group_favorites">收藏</string>
+    <string name="group_default">默认分组</string>
+
+    <string name="no_source">还没有直播源，请先添加</string>
+    <string name="no_source_title">尚未配置直播源</string>
+    <string name="no_source_message">观看直播需要先添加直播源。\n\n可以在设置中添加网络地址（m3u / txt / xml / json）或本地文件；也可以通过其他 App 用 livetv://add 链接分享直播源。</string>
+    <string name="go_config">去配置</string>
+    <string name="source_list">直播源</string>
+    <string name="add_source">添加直播源</string>
+    <string name="edit_source">编辑直播源</string>
+    <string name="new_source">新增直播源</string>
+    <string name="source_name">名称</string>
+    <string name="source_url">直播源地址（http / https / 本地文件）</string>
+    <string name="source_epg">节目单地址（可选，支持 {date} 占位）</string>
+    <string name="source_ua">User-Agent（可选）</string>
+    <string name="select_file">选择本地文件</string>
+    <string name="save">保存</string>
+    <string name="delete">删除</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="active">使用中</string>
+    <string name="click_to_switch">点击切换直播源，长按编辑</string>
+    <string name="delete_source_confirm">确定删除这个直播源？</string>
+    <string name="empty_source">暂无直播源，点击下方按钮添加</string>
+
+    <string name="settings">设置</string>
+    <string name="refresh">刷新直播源</string>
+    <string name="playback_settings">播放设置</string>
+    <string name="aspect">画面比例</string>
+    <string name="aspect_fit">适应（保留黑边）</string>
+    <string name="aspect_fill">拉伸铺满</string>
+    <string name="aspect_zoom">裁剪铺满</string>
+    <string name="buffer_seconds">缓冲时长（秒）</string>
+    <string name="cross_group">上一台/下一台跨分组</string>
+    <string name="auto_start">开机自动启动</string>
+    <string name="about">关于</string>
+    <string name="about_text">电视直播 1.0\n独立直播应用，兼容 m3u / txt / xml / json 直播源，支持 EPG 与回看。</string>
+
+    <string name="loading">正在加载直播源…</string>
+    <string name="load_failed">直播源加载失败</string>
+    <string name="retry">重试</string>
+    <string name="no_channels">该分组没有频道</string>
+    <string name="empty_playlist">没有解析到任何频道</string>
+    <string name="lines">线路</string>
+    <string name="programs">节目单</string>
+    <string name="favorite_add">收藏频道</string>
+    <string name="favorite_remove">取消收藏</string>
+    <string name="line_switch">切换线路</string>
+    <string name="no_program">暂无节目信息</string>
+    <string name="no_catchup">该频道不支持回看</string>
+    <string name="now">正在播出</string>
+    <string name="next">接下来</string>
+    <string name="catchup">回看</string>
+    <string name="exit_confirm">要退出直播吗？</string>
+    <string name="exit">退出</string>
+    <string name="stay">继续观看</string>
+    <string name="epg_missing">未配置节目单地址</string>
+    <string name="channel_number">频道号</string>
+    <string name="settings_hint">方向键选择，OK 确认</string>
+    <string name="play_error">播放失败</string>
+    <string name="no_network">网络不可用</string>
+    <string name="source_format_hint">支持 m3u / txt（#genre#）/ xml（TVBox）/ json 四种格式</string>
+    <string name="import_link">也可以通过手机推送：livetv://add?url=…</string>
+    <string name="program_list">节目单</string>
+    <string name="today">今天</string>
+    <string name="yesterday">昨天</string>
+    <string name="tomorrow">明天</string>
+
+    <string name="timeshift">直播时移</string>
+    <string name="timeshift_window">时移窗口</string>
+    <string name="timeshift_hint">缓存直播流，支持暂停与回拖</string>
+    <string name="live_now">直播</string>
+    <string name="behind_live">回看 · 落后直播 %s</string>
+    <string name="back_30">−30 秒</string>
+    <string name="forward_30">+30 秒</string>
+    <string name="to_live">回到直播</string>
+    <string name="minutes">%d 分钟</string>
+    <string name="decode_mode">解码方式</string>
+    <string name="decode_auto">自动（硬解优先）</string>
+    <string name="decode_soft">优先软解（兼容异常硬解）</string>
+    <string name="player_engine">播放内核</string>
+    <string name="engine_exo">ExoPlayer（系统解码）</string>
+    <string name="engine_ijk">IJKPlayer（FFmpeg）</string>
+    <string name="engine_mpv">mpv（FFmpeg + 软字幕）</string>
+    <string name="engine_unavailable">该内核不可用，请检查安装包是否包含对应 native 库</string>
+    <string name="engine_restart_hint">切换内核后会自动重新加载当前频道</string>
+    <string name="search">搜索</string>
+    <string name="search_channel">搜索频道</string>
+    <string name="search_hint">输入频道名或频道号</string>
+    <string name="search_empty">没有匹配的频道</string>
+    <string name="hide_group">隐藏分组</string>
+    <string name="show_hidden">显示已隐藏分组</string>
+    <string name="hidden_group">已隐藏</string>
+    <string name="group_restored">已恢复分组</string>
+    <string name="lan_server">局域网播放页</string>
+    <string name="source_warning">%1$d 个源未完整支持：%2$s</string>
+    <string name="danmaku">直播弹幕</string>
+    <string name="group_menu">分组</string>
+    <string name="unsupported_source_url">不支持的直播源地址，仅允许 http / https / content 链接</string>
+</resources>
+
+
+
+
