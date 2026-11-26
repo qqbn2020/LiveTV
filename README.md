@@ -35,6 +35,7 @@
 - 直播弹幕：频道带 `danmaku` / `danmaku-url`（M3U 属性或 JSON 字段）时，支持 B 站 XML 与 JSON 弹幕，按播放时间滚动显示，设置里可开关
 - 横屏全屏沉浸、画面比例（适应/拉伸/裁剪）、缓冲时长可调、跨分组切台可开关
 - 干净的直播界面：播放时默认只显示视频画面，不常驻频道信息条/时钟/节目预告；频道信息仅在按 INFO 键后临时显示 6 秒自动隐藏。ExoPlayer 关闭自带缓冲圈，mpv 关闭 OSD/OSC 叠加，切换频道时的短暂转圈为加载反馈
+- 首次启动引导：未配置直播源时弹窗提示，点击「去配置」直接进入设置页添加源，避免用户面对空白界面无从下手
 
 ### 明确未实现（与 FongMi 的差异）
 
@@ -46,19 +47,42 @@
 
 ## 构建
 
-工程已附带可直接构建的 `local.properties`（`sdk.dir` 指向本机 Android SDK）。换机器后改成自己的 SDK 路径即可。
-
 1. 环境：JDK 17、Android SDK Platform 34、Build-Tools 34.0.0；
-2. 命令行构建（Windows）：
+2. 在工程根目录创建 `local.properties`，写入本机 SDK 路径（Android Studio 会自动生成）：
+
+```properties
+sdk.dir=C:\\path\\to\\android-sdk
+```
+
+3. 命令行构建（Windows）：
 
 ```bat
 set JAVA_HOME=C:\path\to\jdk-17
 gradlew.bat assembleDebug
 ```
 
-产物在 `app/build/outputs/apk/debug/app-debug.apk`（约 7.4 MB）。
+产物在 `app/build/outputs/apk/debug/app-debug.apk`（含 ExoPlayer / IJKPlayer / libmpv 三内核 native 库，约 61 MB）。
 
 工程使用 AGP 8.6.1 + Gradle 8.7（wrapper 已配置腾讯镜像），Java 17 编译，纯 Java 无 Kotlin。
+
+### 自动构建与发布（GitHub Actions）
+
+仓库自带 `.github/workflows/release.yml`，发布版本时自动构建 APK：
+
+- **发布 Release 时触发**：在 GitHub 创建并发布 Release（`published`）→ 自动运行单测 + 构建，并把 `电视直播-<tag>.apk` 附加到该 Release 的下载资源；
+- **推送标签触发**：`git push origin v1.0.0`（匹配 `v*`）→ 构建 APK 并上传为 Actions 产物（不自动建 Release）；
+- **手动触发**：Actions 页面选择 `Release APK` → `Run workflow`，产物在本次运行页面的 Artifacts 中下载（保留 30 天）。
+
+发布一个版本的推荐流程：
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+# 然后在 GitHub 基于该 tag 创建 Release 并发布，CI 会自动把 APK 挂上去
+```
+
+CI 构建的是 **debug 签名**的 APK（可直接安装；未配置正式签名密钥）。若要发布正式签名版本，需在仓库 Secrets 中配置 keystore 并在 `app/build.gradle` 中读取，属可选进阶配置。
+
 
 ## 直播源格式
 
