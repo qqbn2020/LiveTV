@@ -82,7 +82,7 @@ gradlew.bat assembleDebug
 
 需要 JDK 17 + Android SDK Platform 34（Android Studio 打开也会自动配置）。产物在 `app/build/outputs/apk/debug/app-debug.apk`。
 
-**自动构建**：仓库自带 `.github/workflows/release.yml`，推送 `v*` 标签即自动跑单测、构建 APK 并创建 Release 挂载 `电视直播.apk`；也可在 Actions 页面手动触发。
+**自动构建**：仓库自带 `.github/workflows/release.yml`，推送 `v*` 标签即自动跑单测、构建 APK 并创建 Release 挂载 `LiveTV.apk`；也可在 Actions 页面手动触发。
 
 ## 常见问题
 
