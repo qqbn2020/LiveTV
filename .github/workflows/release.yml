@@ -74,6 +74,8 @@ jobs:
           fi
           mkdir -p out
           cp app/build/outputs/apk/debug/app-debug.apk "out/电视直播-${VERSION}.apk"
+          # 固定文件名副本，供 releases/latest/download/电视直播.apk 稳定直链使用
+          cp app/build/outputs/apk/debug/app-debug.apk "out/电视直播.apk"
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
           ls -lh out
 
@@ -85,9 +87,11 @@ jobs:
           retention-days: 30
 
       - name: Attach APK to Release
-        if: github.event_name == 'release'
+        # Release 事件或 tag 推送时执行；tag 触发时若 Release 不存在会自动创建
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'release'
         uses: softprops/action-gh-release@v2
         with:
           files: out/*.apk
-          tag_name: ${{ github.event.release.tag_name }}
+          tag_name: ${{ github.event.release.tag_name || github.ref_name }}
+          generate_release_notes: true
           fail_on_unmatched_files: true
