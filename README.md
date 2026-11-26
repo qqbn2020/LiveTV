@@ -2,13 +2,13 @@
 
 一款适用于 **Android TV / 手机** 的电视直播 App。三播放内核可切换、四种直播源格式通吃、支持节目单和回看，播放界面干净清爽。
 
-**[⬇️ 下载最新版 APK](https://github.com/qqbn2020/LiveTV/releases/latest/download/%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD.apk)** · [全部版本](https://github.com/qqbn2020/LiveTV/releases)
+**[⬇️ 下载最新版 APK](https://github.com/qqbn2020/LiveTV/releases/latest/download/LiveTV.apk)** · [全部版本](https://github.com/qqbn2020/LiveTV/releases)
 
 ---
 
 ## 下载安装
 
-1. 点击上面的 **下载最新版 APK**（或打开 [Releases 页面](https://github.com/qqbn2020/LiveTV/releases)，在最新版本下点击 `电视直播.apk`）；
+1. 点击上面的 **下载最新版 APK**（或打开 [Releases 页面](https://github.com/qqbn2020/LiveTV/releases)，在最新版本下点击 `LiveTV.apk`）；
 2. 把 APK 拷贝到电视盒子 / 手机（U 盘、微信文件传输、局域网均可）；
 3. 在设备上点击安装（电视上用文件管理器打开），如提示"未知来源"允许即可；
 4. 打开 App，按弹窗提示进入设置，添加你的直播源地址即可开始观看。

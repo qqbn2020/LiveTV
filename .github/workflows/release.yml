@@ -73,9 +73,10 @@ jobs:
             VERSION="build-$(date +%Y%m%d-%H%M)"
           fi
           mkdir -p out
-          cp app/build/outputs/apk/debug/app-debug.apk "out/电视直播-${VERSION}.apk"
-          # 固定文件名副本，供 releases/latest/download/电视直播.apk 稳定直链使用
-          cp app/build/outputs/apk/debug/app-debug.apk "out/电视直播.apk"
+          # 资源名使用 ASCII：GitHub Release 对非 ASCII 文件名支持不稳定
+          cp app/build/outputs/apk/debug/app-debug.apk "out/LiveTV-${VERSION}.apk"
+          # 固定文件名副本，供 releases/latest/download/LiveTV.apk 稳定直链使用
+          cp app/build/outputs/apk/debug/app-debug.apk "out/LiveTV.apk"
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
           ls -lh out
 
