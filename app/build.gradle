@@ -10,16 +10,19 @@ android {
         applicationId "com.livetv"
         minSdk 21
         targetSdk 34
-        versionCode 1
-        versionName "1.0.0"
+        versionCode 3
+        versionName "1.0.3"
         vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
         release {
-            minifyEnabled false
-            shrinkResources false
+            // 开启 R8 混淆 + 资源收缩以减小 APK 体积
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // CI 构建的发布包用 debug 密钥签名，保证可直接安装（未配置正式签名）
+            signingConfig signingConfigs.debug
         }
     }
 

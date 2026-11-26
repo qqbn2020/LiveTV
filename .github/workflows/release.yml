@@ -61,8 +61,8 @@ jobs:
       - name: Run unit tests
         run: ./gradlew testDebugUnitTest --no-daemon --console=plain
 
-      - name: Build debug APK
-        run: ./gradlew assembleDebug --no-daemon --console=plain
+      - name: Build minified release APK
+        run: ./gradlew assembleRelease --no-daemon --console=plain
 
       - name: Prepare artifact
         id: prep
@@ -73,10 +73,9 @@ jobs:
             VERSION="build-$(date +%Y%m%d-%H%M)"
           fi
           mkdir -p out
-          # 资源名使用 ASCII：GitHub Release 对非 ASCII 文件名支持不稳定
-          cp app/build/outputs/apk/debug/app-debug.apk "out/LiveTV-${VERSION}.apk"
-          # 固定文件名副本，供 releases/latest/download/LiveTV.apk 稳定直链使用
-          cp app/build/outputs/apk/debug/app-debug.apk "out/LiveTV.apk"
+          # 只上传一个固定名资源（ASCII）：非 ASCII 文件名在 Release 上传会被破坏，
+          # 固定名供 releases/latest/download/LiveTV.apk 稳定直链使用，版本号看 Release tag
+          cp app/build/outputs/apk/release/app-release.apk "out/LiveTV.apk"
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
           ls -lh out
 

@@ -13,7 +13,7 @@
 3. 在设备上点击安装（电视上用文件管理器打开），如提示"未知来源"允许即可；
 4. 打开 App，按弹窗提示进入设置，添加你的直播源地址即可开始观看。
 
-> 版本发布后由 GitHub Actions **自动构建并挂到 Release**，上述直链永远指向最新版。APK 约 60 MB（内置三套播放内核），支持 Android 5.0 及以上、TV 盒子与手机通用。
+> 版本发布后由 GitHub Actions **自动构建并挂到 Release**，上述直链永远指向最新版。APK 约 52 MB（内置三套播放内核，已开启 R8 混淆与资源收缩），支持 Android 5.0 及以上、TV 盒子与手机通用。
 
 ## 核心功能
 
@@ -77,12 +77,12 @@
 
 ```bat
 set JAVA_HOME=C:\path\to\jdk-17
-gradlew.bat assembleDebug
+gradlew.bat assembleRelease
 ```
 
-需要 JDK 17 + Android SDK Platform 34（Android Studio 打开也会自动配置）。产物在 `app/build/outputs/apk/debug/app-debug.apk`。
+需要 JDK 17 + Android SDK Platform 34（Android Studio 打开也会自动配置）。产物在 `app/build/outputs/apk/release/app-release.apk`（已开启 R8 混淆 + 资源收缩，debug 密钥签名，可直接安装）。
 
-**自动构建**：仓库自带 `.github/workflows/release.yml`，推送 `v*` 标签即自动跑单测、构建 APK 并创建 Release 挂载 `LiveTV.apk`；也可在 Actions 页面手动触发。
+**自动构建**：仓库自带 `.github/workflows/release.yml`，推送 `v*` 标签即自动跑单测、构建混淆版 APK 并创建 Release 挂载 `LiveTV.apk`；也可在 Actions 页面手动触发。
 
 ## 常见问题
 
